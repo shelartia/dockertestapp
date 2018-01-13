@@ -2,6 +2,7 @@ from flask import Flask, Response, request
 import requests
 import hashlib
 import redis
+import html
 
 cache = redis.StrictRedis(host='redis',port=6379, db=0)
 
@@ -13,7 +14,7 @@ default_name='Nickol Kidma'
 def mainpage():
   name = default_name
   if request.method=='POST':
-    name = request.form['name']
+    name = html.escape(request.form['name'], quote=True)
   salted_name = salt + name
   name_hash = hashlib.sha256(salted_name.encode()).hexdigest()
   header = '<html><head><title>Identidock</title></head><body>'
