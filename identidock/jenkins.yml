@@ -1,9 +1,9 @@
 mytestapp:
   build: .
   ports: 
-   - "5005:5000"
+   - "9090"
   environment: 
-    ENV: DEV
+    ENV: PROD
   volumes: 
    - ./app:/app
   links:
