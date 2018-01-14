@@ -1,11 +1,9 @@
 mytestapp:
   build: .
-  ports: 
+  expose: 
    - "9090"
   environment: 
     ENV: PROD
-  volumes: 
-   - ./app:/app
   links:
    - dnmonster
    - redis
