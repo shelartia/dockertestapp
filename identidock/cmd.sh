@@ -7,6 +7,7 @@ if [ "$ENV" = "DEV" ]; then
   exec python "identidock.py"
 elif [ "$ENV" = "UNIT" ]; then
   echo "Running auto tests"
+  ls
   exec python "test.py"
 else
   echo "Running Production Server"
